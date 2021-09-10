@@ -1,0 +1,5 @@
+{
+	"coc.preferences.formatOnSaveFiletypes": ["json", "css", "markdown", "javascript", "javascriptreact", "typescript"],
+	"diagnostic.checkCurrentLine": true,
+	"eslint.autoFixOnSave": true
+}
