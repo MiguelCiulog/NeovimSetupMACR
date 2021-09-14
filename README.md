@@ -1,0 +1,4 @@
+# NeovimSetupMACR
+
+## Important note
+DELETE EVERY MAPPING ON COMMENTARY
