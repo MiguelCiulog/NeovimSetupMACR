@@ -9,10 +9,10 @@ nmap <silent><S-Tab> :tabnext<Return>
 " nmap <Tab> :tabnext<Return>
 
 " Ctrl + h and ctrl + l uses word skip
-nnoremap <c-h> b
-nnoremap <c-l> w
-vnoremap <c-h> b
-vnoremap <c-l> w
+" nnoremap <c-h> b
+" nnoremap <c-l> w
+" vnoremap <c-h> b
+" vnoremap <c-l> w
 
 " Delete without yank
 nnoremap <leader>d "_d
@@ -58,8 +58,8 @@ else
     let g:rainbow_active = 1
     " ordinary neovim
     " Create default mappings for commenting lines
-    nmap F :Commentary<Enter>
-    xmap F :Commentary<Enter>
+    nmap <silent>F :Commentary<Enter>
+    xmap <silent>F :Commentary<Enter>
     " Use <c-space> to trigger completion.
     inoremap <silent><expr> <c-space> coc#refresh()
     runtime ./plugmaps.vim
@@ -85,7 +85,7 @@ vnoremap <cs-Up> Yp
 vnoremap <cs-Down> Yp
 " vnoremap <c-J> Yp
 
-" Change default from enter to space
+" Press s to add an extra line
 " The 0_"D is for deleting comments on the start of the line
 " noremap <Space><Space> <Enter>
 " noremap <Space> o<esc>0"_D

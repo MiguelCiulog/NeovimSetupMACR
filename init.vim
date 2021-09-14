@@ -13,6 +13,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'tpope/vim-commentary'
 Plug 'luochen1990/rainbow'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 
 syntax enable
@@ -21,7 +23,7 @@ filetype plugin on
 set ruler
 let g:rainbow_active = 1
 " Set scroll with cursor
-set scrolloff=8
+set scrolloff=5
 
 " Use system clipboard
 set clipboard^=unnamed,unnamedplus
