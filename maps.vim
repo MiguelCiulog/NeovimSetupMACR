@@ -89,8 +89,10 @@ vnoremap <cs-Down> Yp
 " The 0_"D is for deleting comments on the start of the line
 " noremap <Space><Space> <Enter>
 " noremap <Space> o<esc>0"_D
-noremap s o<esc>0"_D
-noremap S O<esc>0"_D
+" noremap s o<esc>0"_D
+" noremap S O<esc>0"_D
+noremap s o<space><esc>
+noremap S O<space><esc>
 
 " Backspace in visual mode deletes selection
 vnoremap <BS> d
