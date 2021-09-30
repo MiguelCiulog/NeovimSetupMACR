@@ -14,6 +14,12 @@ nmap <silent><S-Tab> :tabnext<Return>
 " vnoremap <c-h> b
 " vnoremap <c-l> w
 
+" Remap C-c to <esc>
+nmap <c-c> <esc>
+imap <c-c> <esc>
+vmap <c-c> <esc>
+omap <c-c> <esc>
+
 " Delete without yank
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
@@ -21,26 +27,23 @@ onoremap <leader>d "_d
 nnoremap x "_x
 
 " Paste the last thing yanked, not deleted
-nnoremap <space>p "0p
+nnoremap <leader>p "0p
 nnoremap <leader>P "0P
-nnoremap <S-C-p> "0p
-nnoremap <S-C-v> "0p
+" nnoremap <S-C-p> "0p
+" nnoremap <S-C-v> "0p
 " nmap ,P "0P
 
 " Select everything ggVG
 nnoremap <c-a> ggVG
 
 " Copy with ctrl+c
-vnoremap <C-c> y
+" vnoremap <C-c> y
 
 " Remap go to end of line ($) and go to start of line (^)
 nnoremap H ^
 nnoremap L $
 vnoremap H ^
 vnoremap L $
-
-" Undo with c-u
-nmap <c-U> :later<CR>
 
 " Remap replace to ctrl + r
 nmap <c-r> <Plug>(coc-rename)
@@ -49,8 +52,10 @@ nmap <c-r> <Plug>(coc-rename)
 if exists('g:vscode')
     " VSCode extension
     " Create default mappings for commenting lines
-    nmap F <Plug>VSCodeCommentary
+    nmap F <Plug>VSCodeCommentaryLine
     xmap F <Plug>VSCodeCommentary
+    " Undo with c-u
+    nmap <c-U> :redo<CR>
     "Activate rainbow brackets pairs
     let g:rainbow_active = 0
 else
@@ -60,6 +65,8 @@ else
     " Create default mappings for commenting lines
     nmap <silent>F :Commentary<Enter>
     xmap <silent>F :Commentary<Enter>
+    " Undo with c-u
+    nmap <c-U> :later<CR>
     " Use <c-space> to trigger completion.
     inoremap <silent><expr> <c-space> coc#refresh()
     runtime ./plugmaps.vim
@@ -86,13 +93,11 @@ vnoremap <cs-Down> Yp
 " vnoremap <c-J> Yp
 
 " Press s to add an extra line
-" The 0_"D is for deleting comments on the start of the line
-" noremap <Space><Space> <Enter>
-" noremap <Space> o<esc>0"_D
-" noremap s o<esc>0"_D
-" noremap S O<esc>0"_D
+" The o<Esc>^Da is for deleting comments on the start of the line
 noremap s o<space><esc>
 noremap S O<space><esc>
+nnoremap <Leader>s o<Esc>^"_Da
+nnoremap <Leader>S O<Esc>^"_Da
 
 " Backspace in visual mode deletes selection
 vnoremap <BS> d

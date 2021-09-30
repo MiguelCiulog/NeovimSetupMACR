@@ -2,27 +2,28 @@ set number
 call plug#begin()
 
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'vim-airline/vim-airline'
+" Bottom line :)
 Plug 'itchyny/lightline.vim'
+" Language package
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'morhetz/gruvbox'
-Plug 'preservim/tagbar'
-Plug 'universal-ctags/ctags'
+" Plug 'morhetz/gruvbox'
 Plug 'rust-lang/rust.vim'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'tpope/vim-commentary'
-" Plug 'luochen1990/rainbow'
 Plug 'frazrepo/vim-rainbow'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'projekt0n/github-nvim-theme'
 call plug#end()
 
 syntax enable
 filetype plugin indent on
 filetype plugin on
 set ruler
-let g:rainbow_active = 1
+" let g:rainbow_active = 1
+
 " Set scroll with cursor
 set scrolloff=5
 
@@ -39,6 +40,9 @@ let mapleader = " "
 " inoremap <c-H> <esc>vb
 " inoremap <c-L> <esc>ve
 " vmap <c-L> ve
+
+" set an 80 column border for good coding style
+set cc=80
 
 set smartcase
 set ignorecase
@@ -61,6 +65,39 @@ set nowrap
 set background=dark
 
 colorscheme palenight
+let g:lightline = {
+      \'colorscheme': 'palenight',
+			\
+			\ 'active': {
+			\   'left': [ [ 'mode', 'paste' ],
+			\ [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+			\ },
+			\
+			\ 'component_function': {
+			\   'cocstatus': 'coc#status'
+			\ },
+			\
+			\ }
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+let g:palenight_terminal_italics=1
+
+" " Example config in VimScript
+" let g:github_function_style = "italic"
+" let g:github_sidebars = ["qf", "vista_kind", "terminal", "packer"]
+
+" set termguicolors
+
+" " Change the "hint" color to the "orange" color, and make the "error" color bright red
+" " let g:github_colors = [hint = "orange", error = "#ff0000"]
+
+" " VimScript
+" let g:github_comment_style = "italic"
+" let g:github_keyword_style = "italic"
+" let g:github_function_style = "italic"
+" let g:github_variable_style = "italic"
+
+" " Load the colorscheme
+" colorscheme github_dimmed
 
 " Have mouse available to use
 set mouse=a
