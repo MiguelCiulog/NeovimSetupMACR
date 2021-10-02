@@ -45,10 +45,6 @@ nnoremap L $
 vnoremap H ^
 vnoremap L $
 
-" Remap replace to ctrl + r
-nmap <c-r> <Plug>(coc-rename)
-" nmap <leader>rn <Plug>(coc-rename)
-
 if exists('g:vscode')
     " VSCode extension
     " Create default mappings for commenting lines
@@ -69,6 +65,8 @@ else
     nmap <c-U> :later<CR>
     " Use <c-space> to trigger completion.
     inoremap <silent><expr> <c-space> coc#refresh()
+    " Remap replace to ctrl + r
+    nmap <c-r> <Plug>(coc-rename)
     runtime ./plugmaps.vim
     " runtime ./pluginsmaps.vim
 endif
@@ -81,23 +79,12 @@ nnoremap <Silent><F3> :set hlsearch!<CR>
 " c-s to save in normal mode
 nnoremap <c-s> :w<Enter>
 
-" Copy the previous line and put it up or down
-nnoremap <cs-Up> Yp
-" nnoremap <c-K> Yp
-nnoremap <cs-Down> Yp
-" nnoremap <c-J> Yp
-
-vnoremap <cs-Up> Yp
-" vnoremap <c-K> Yp
-vnoremap <cs-Down> Yp
-" vnoremap <c-J> Yp
-
 " Press s to add an extra line
 " The o<Esc>^Da is for deleting comments on the start of the line
 noremap s o<space><esc>
 noremap S O<space><esc>
-nnoremap <Leader>s o<Esc>^"_Da
-nnoremap <Leader>S O<Esc>^"_Da
+nnoremap <Leader>s o<Esc>^"_D
+nnoremap <Leader>S O<Esc>^"_D
 
 " Backspace in visual mode deletes selection
 vnoremap <BS> d
