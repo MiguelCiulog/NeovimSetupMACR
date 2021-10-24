@@ -51,7 +51,7 @@ if exists('g:vscode')
     nmap F <Plug>VSCodeCommentaryLine
     xmap F <Plug>VSCodeCommentary
     " Undo with c-u
-    nmap <c-U> :redo<CR>
+    " nmap <c-U> :redo<CR>
     "Activate rainbow brackets pairs
     let g:rainbow_active = 0
 else
@@ -62,11 +62,10 @@ else
     nmap <silent>F :Commentary<Enter>
     xmap <silent>F :Commentary<Enter>
     " Undo with c-u
-    nmap <c-U> :later<CR>
+    " nmap <c-U> :later<CR>
+
     " Use <c-space> to trigger completion.
     inoremap <silent><expr> <c-space> coc#refresh()
-    " Remap replace to ctrl + r
-    nmap <c-r> <Plug>(coc-rename)
     runtime ./plugmaps.vim
     " runtime ./pluginsmaps.vim
 endif
@@ -102,4 +101,5 @@ nmap <silent> <c-down> :wincmd j<CR>
 nmap <silent> <c-left> :wincmd h<CR>
 nmap <silent> <c-right> :wincmd l<CR>
 
-
+" Remap replace to ctrl + r
+nmap <F2> <Plug>(coc-rename)
