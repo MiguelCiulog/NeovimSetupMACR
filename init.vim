@@ -16,6 +16,9 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'projekt0n/github-nvim-theme'
+
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
 call plug#end()
 
 syntax enable
@@ -108,7 +111,6 @@ autocmd BufWritePre * %s/\s\+$//e
 " Paste on left side, not on right side
 " nnoremap p P
 " nnoremap P p
-" map <c-v> "+gP
 
 " Add an empty line on the next line
 " nmap <c-k> o<esc>0"_Dk

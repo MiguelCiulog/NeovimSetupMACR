@@ -297,6 +297,9 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Indent lines setup
 
+" :lua require('~/.config/nvim/luaConfig/luaConfig')
+:lua require('luaConfig')
+
 lua << EOF
 
 vim.opt.list = true
@@ -309,6 +312,7 @@ vim.opt.list = true
 
 require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules"} } }
 EOF
+
 
 "vim.opt.list = true
 " vim.opt.listchars = {
