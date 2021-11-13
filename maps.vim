@@ -103,3 +103,6 @@ nmap <silent> <c-right> :wincmd l<CR>
 
 " Remap replace to ctrl + r
 nmap <F2> <Plug>(coc-rename)
+
+" active c-backspace and alt-basckspace to delete
+inoremap <C-H> <C-W>
