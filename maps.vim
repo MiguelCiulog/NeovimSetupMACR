@@ -105,4 +105,6 @@ nmap <silent> <c-right> :wincmd l<CR>
 nmap <F2> <Plug>(coc-rename)
 
 " active c-backspace and alt-basckspace to delete
+" asd1 asd2 asd3
 inoremap <C-H> <C-W>
+inoremap <C-Del> <C-o>dw
