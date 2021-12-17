@@ -33,6 +33,9 @@ nnoremap <leader>P "0P
 " nnoremap <S-C-v> "0p
 " nmap ,P "0P
 
+" Paste in insert mode
+inoremap <c-v> <Esc>pa
+
 " Select everything ggVG
 nnoremap <c-a> ggVG
 
@@ -80,10 +83,11 @@ nnoremap <c-s> :w<Enter>
 
 " Press s to add an extra line
 " The o<Esc>^Da is for deleting comments on the start of the line
-noremap s o<space><esc>
-noremap S O<space><esc>
-nnoremap <Leader>s o<Esc>^"_D
-nnoremap <Leader>S O<Esc>^"_D
+
+nnoremap s o<Esc>^"_D
+nnoremap S O<Esc>^"_D
+noremap <Leader>s o<space><esc>
+noremap <Leader>S O<space><esc>
 
 " Backspace in visual mode deletes selection
 vnoremap <BS> d
@@ -108,3 +112,6 @@ nmap <F2> <Plug>(coc-rename)
 " asd1 asd2 asd3
 inoremap <C-H> <C-W>
 inoremap <C-Del> <C-o>dw
+
+" Save as sudo
+command W :execute 'SudaWrite'

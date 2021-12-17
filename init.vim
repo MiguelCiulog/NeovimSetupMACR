@@ -19,6 +19,8 @@ Plug 'projekt0n/github-nvim-theme'
 
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
+
+Plug 'lambdalisue/suda.vim'
 call plug#end()
 
 syntax enable
