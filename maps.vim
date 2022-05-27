@@ -25,6 +25,7 @@ nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 onoremap <leader>d "_d
 nnoremap x "_x
+nnoremap X "_X
 
 " Paste the last thing yanked, not deleted
 nnoremap <leader>p "0p

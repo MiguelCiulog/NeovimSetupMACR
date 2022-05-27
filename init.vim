@@ -1,7 +1,9 @@
-set number
+" set number
+set nu rnu
 call plug#begin()
 
-Plug 'drewtempelmeyer/palenight.vim'
+" Plug 'drewtempelmeyer/palenight.vim'
+Plug 'ayu-theme/ayu-vim'
 " Bottom line :)
 Plug 'itchyny/lightline.vim'
 " Language package
@@ -69,9 +71,12 @@ set nowrap
 
 set background=dark
 
-colorscheme palenight
+set termguicolors
+let ayucolor="mirage"
+colorscheme ayu
+
 let g:lightline = {
-      \'colorscheme': 'palenight',
+      \'colorscheme': 'ayu',
 			\
 			\ 'active': {
 			\   'left': [ [ 'mode', 'paste' ],
