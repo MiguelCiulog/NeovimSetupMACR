@@ -14,10 +14,10 @@ vnoremap <c-x> "+x
 " vnoremap <c-l> w
 
 " Remap C-c to <esc> (already default)
-" nmap <c-c> <esc>
-" imap <c-c> <esc>
-" vmap <c-c> <esc>
-" omap <c-c> <esc>
+nmap <c-c> <esc>
+imap <c-c> <esc>
+vmap <c-c> <esc>
+omap <c-c> <esc>
 
 " Delete without yank
 nnoremap <leader>d "_d
