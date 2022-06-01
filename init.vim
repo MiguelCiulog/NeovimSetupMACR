@@ -2,9 +2,16 @@ call plug#begin()
 
 " Theme ayu
 Plug 'ayu-theme/ayu-vim'
+Plug 'overcache/NeoSolarized'
+
+" Top line
+" Plug 'vim-airline/vim-airline'
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 
 " Bottom line :)
-Plug 'itchyny/lightline.vim'
+Plug 'nvim-lualine/lualine.nvim'
+" Plug 'itchyny/lightline.vim'
+" Plug 'mengelbrecht/lightline-bufferline'
 
 " Language package
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -36,7 +43,7 @@ set ruler
 set cursorline " highlight current cursorline
 
 " Set scroll with cursor
-set scrolloff=5
+" set scrolloff=5
 
 " Use system clipboard
 set clipboard+=unnamedplus
@@ -44,6 +51,9 @@ set clipboard+=unnamedplus
 " Use space as leader key
 nnoremap <Space> <Nop>
 let mapleader = " "
+
+" allow buffer switching without saving
+set hidden
 
 " set an 80 column border for good coding style
 set cc=80
@@ -56,7 +66,7 @@ set ignorecase
 set smarttab
 
 set enc=utf-8
-set fillchars=vert:\#
+set fillchars=vert:\~ 
 
 " Autoindent
 set autoindent
@@ -75,27 +85,40 @@ set background=dark
 set termguicolors
 let ayucolor="mirage"
 colorscheme ayu
+" let g:neosolarized_vertSplitBgTrans = 1
+" colorscheme NeoSolarized
 
-let g:lightline = {
-      \'colorscheme': 'ayu',
-			\
-			\ 'active': {
-			\   'left': [ [ 'mode', 'paste' ],
-			\ [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-			\ },
-			\
-			\ 'component_function': {
-			\   'cocstatus': 'coc#status'
-			\ },
-			\
-			\ }
-autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+" Change default # used in vertical splits to a diferent color 
+highlight VertSplit guifg=#3d4751
+" let g:lightline = {
+"       \'colorscheme': 'ayu',
+" 			\
+" 			\ 'active': {
+" 			\   'left': [ [ 'mode', 'paste' ],
+" 			\ [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+" 			\ },
+" 			\
+" 			\ 'component_function': {
+" 			\   'cocstatus': 'coc#status'
+" 			\ },
+" 			\ }
+
+" autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 " Have mouse available to use
 set mouse=a
 
 " Remove trailing whitespace on write
-autocmd BufWritePre * %s/\s\+$//e
+" autocmd BufWritePre * %s/\s\+$//e
+
+" Function to trim extra whitespace in whole file
+function! Trim()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+command! -nargs=0 Trim call Trim()
 
 " Paste on left side, not on right side
 " Optional

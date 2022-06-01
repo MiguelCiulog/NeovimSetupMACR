@@ -6,7 +6,8 @@ let g:coc_global_extensions = [
       \'coc-json',
       \'coc-tsserver',
       \'coc-prettier',
-      \'coc-go'
+      \'coc-go',
+      \'coc-snippets'
       \]
 " coc-eslint
 
@@ -261,11 +262,9 @@ vim.opt.list = true
 
  require("indent_blankline").setup {
      show_end_of_line = true,
-     --char = "▏",
+     char = "▏",
      buftype_exclude = {"terminal"}
  }
-
-require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules"} } }
 EOF
 
 nnoremap <c-t> :NvimTreeToggle<CR>

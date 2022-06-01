@@ -34,7 +34,7 @@ nnoremap <leader>P "0P
 " nmap ,P "0P
 
 " Paste in insert mode
-inoremap <c-v> <Esc>pa
+" inoremap <c-v> <Esc>pa
 
 " Select everything ggVG
 nnoremap <c-a> ggVG
@@ -48,29 +48,9 @@ nnoremap L $
 vnoremap H ^
 vnoremap L $
 
-if exists('g:vscode')
-    " VSCode extension
-    " Create default mappings for commenting lines
-    nmap F <Plug>VSCodeCommentaryLine
-    xmap F <Plug>VSCodeCommentary
-else
-    " Ordinary neovim
-    " Create default mappings for commenting lines
-    nmap <silent>F :Commentary<Enter>
-    xmap <silent>F :Commentary<Enter>
-    " Undo with c-u (c-r is the default)
-    " nmap <c-U> :later<CR>
-
-    " Use <c-space> to trigger completion.
-    inoremap <silent><expr> <c-space> coc#refresh()
-    " Run maps for plugins
-    runtime ./plugmaps.vim
-endif
-
-
 " Use f3 to search (Not working)
 " set hlsearch!
-" nnoremap <Silent><F3> :set hlsearch!<CR>
+nnoremap <silent><Leader>hl :set hlsearch!<CR>
 
 " c-s to save in normal mode
 nnoremap <c-s> :w<Enter>
@@ -100,4 +80,43 @@ nmap <F2> <Plug>(coc-rename)
 " active c-backspace and alt-basckspace to delete
 inoremap <C-H> <C-W>
 inoremap <C-Del> <C-o>dw
+
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nmap <silent><leader>bq :bp <BAR> bd #<CR>
+
+if exists('g:vscode')
+    " VSCode extension
+    " Create default mappings for commenting lines
+    nmap F <Plug>VSCodeCommentaryLine
+    xmap F <Plug>VSCodeCommentary
+
+    " Change buffers with c-n and c-p on normal mode
+    nnoremap <C-P> :bnext<CR>
+    nnoremap <C-N> :bprev<CR>
+else
+    " Ordinary neovim
+
+    " These commands will navigate through buffers in order regardless of which mode you are using
+    " e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
+    nnoremap <silent><C-P> :BufferLineCycleNext<CR>
+    nnoremap <silent><C-N> :BufferLineCyclePrev<CR>
+
+    " These commands will move the current buffer backwards or forwards in the bufferline
+    nnoremap <silent><leader>bp :BufferLineMoveNext<CR>
+    nnoremap <silent><leader>bn :BufferLineMovePrev<CR>
+
+    " Create default mappings for commenting lines
+    nmap <silent>F :Commentary<Enter>
+    xmap <silent>F :Commentary<Enter>
+
+    " Undo with c-u (c-r is the default)
+    " nmap <c-U> :later<CR>
+
+    " Use <c-space> to trigger completion.
+    inoremap <silent><expr> <c-space> coc#refresh()
+    " Run maps for plugins
+    runtime ./plugmaps.vim
+endif
+
 

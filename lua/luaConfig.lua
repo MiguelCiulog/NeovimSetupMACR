@@ -1,3 +1,7 @@
+require 'nvim-treesitter.install'.compilers = { "clang" }
+
+require('telescope').setup{  defaults = { file_ignore_patterns = { "node_modules", ".git" }} }
+
 require'nvim-tree'.setup {
   disable_netrw       = true,
   hijack_netrw        = true,
@@ -36,7 +40,7 @@ require'nvim-tree'.setup {
     width = 30,
     height = 30,
     hide_root_folder = false,
-    side = 'left',
+    side = 'right',
     auto_resize = false,
     mappings = {
       custom_only = false,
@@ -72,4 +76,50 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+}
+require('lualine').setup{
+  options = {
+  component_separators = { left = '|', right = '|'},
+  section_separators = { left = '', right = ''},
+  theme = 'ayu_mirage'
+  },
+
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {
+      {
+        'filename',
+        file_status = true, -- displays file status (readonly status, modified status)
+        path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
+      }
+    },
+    lualine_c = {'branch', 'diff', 'diagnostics'},
+    lualine_x = {'fileformat', 'encoding', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+
+  extensions = {'nvim-tree'}
+}
+
+-- Use bufferline
+vim.opt.termguicolors = true
+require("bufferline").setup{
+    -- NOTE: this plugin is designed with this icon in mind,
+    -- and so changing this is NOT recommended, this is intended
+    -- as an escape hatch for people who cannot bear it for whatever reason
+    indicator_icon = '▎',
+    buffer_close_icon = '',
+    modified_icon = '●',
+    close_icon = '',
+    left_trunc_marker = '',
+    right_trunc_marker = ''
 }
