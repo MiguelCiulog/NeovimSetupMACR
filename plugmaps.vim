@@ -267,4 +267,4 @@ vim.opt.list = true
  }
 EOF
 
-nnoremap <c-t> :NvimTreeToggle<CR>
+nnoremap <c-t> :NvimTreeFocus<CR>
