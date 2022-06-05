@@ -84,6 +84,8 @@ inoremap <C-Del> <C-o>dw
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
 nmap <silent><leader>bq :bp <BAR> bd #<CR>
+" Force quit
+nmap <silent><leader>bQ :bp! <BAR> bd #<CR>
 
 if exists('g:vscode')
     " VSCode extension
