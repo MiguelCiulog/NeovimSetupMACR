@@ -32,6 +32,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'lambdalisue/suda.vim'
 call plug#end()
 
+
 " Relative numbers
 set nu rnu
 
@@ -43,7 +44,7 @@ set ruler
 set cursorline " highlight current cursorline
 
 " Set scroll with cursor
-" set scrolloff=5
+set scrolloff=6
 
 " Use system clipboard
 set clipboard+=unnamedplus
@@ -52,8 +53,22 @@ set clipboard+=unnamedplus
 nnoremap <Space> <Nop>
 let mapleader = " "
 
+" CocConfig stuff
+set nobackup
+set nowritebackup
+
+" Give more space for displaying messages.
+set cmdheight=2
+
 " allow buffer switching without saving
 set hidden
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
 
 " set an 80 column border for good coding style
 set cc=80
@@ -83,10 +98,9 @@ set nowrap
 set background=dark
 
 set termguicolors
-let ayucolor="mirage"
-colorscheme ayu
-" let g:neosolarized_vertSplitBgTrans = 1
-" colorscheme NeoSolarized
+" let ayucolor="mirage"
+" colorscheme ayu
+colorscheme NeoSolarized
 
 " Change default # used in vertical splits to a diferent color 
 highlight VertSplit guifg=#3d4751
@@ -128,6 +142,7 @@ command! -nargs=0 Trim call Trim()
 " Set default splits to down and right
 set splitbelow splitright
 
+set signcolumn=yes
 " TODO: Be able to use tab to add tabs
 
 " Add mappings
