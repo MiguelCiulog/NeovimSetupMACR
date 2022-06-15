@@ -3,7 +3,6 @@ call plug#begin()
 " Theme ayu
 Plug 'ayu-theme/ayu-vim'
 Plug 'overcache/NeoSolarized'
-
 " Top line
 " Plug 'vim-airline/vim-airline'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
@@ -32,6 +31,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'lambdalisue/suda.vim'
 call plug#end()
 
+set enc=utf-8
 
 " Relative numbers
 set nu rnu
@@ -40,6 +40,7 @@ syntax enable
 filetype plugin indent on
 filetype plugin on
 set ruler
+set signcolumn=yes
 
 set cursorline " highlight current cursorline
 
@@ -89,8 +90,18 @@ set autoindent
 " Smart indent
 set si
 
-set shiftwidth=2
-set tabstop=2
+" Inserts tabs as spaces
+set smarttab
+
+set fillchars=vert:\~ 
+
+" Tab settings
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+
+" Smart indentation
+set smartindent
 
 " Lines dont wrap (Go to the next "line")
 set nowrap
