@@ -81,7 +81,7 @@ set ignorecase
 set smarttab
 
 set enc=utf-8
-set fillchars=vert:\~ 
+set fillchars=vert:\■ 
 
 " Autoindent
 set autoindent
@@ -98,9 +98,9 @@ set nowrap
 set background=dark
 
 set termguicolors
-" let ayucolor="mirage"
-" colorscheme ayu
-colorscheme NeoSolarized
+let ayucolor="mirage"
+colorscheme ayu
+" colorscheme NeoSolarized
 
 " Change default # used in vertical splits to a diferent color 
 highlight VertSplit guifg=#3d4751
@@ -143,6 +143,11 @@ command! -nargs=0 Trim call Trim()
 set splitbelow splitright
 
 set signcolumn=yes
+
+" Remove background
+" hi Normal guibg=none
+" hi NonText guibg=none
+
 " TODO: Be able to use tab to add tabs
 
 " Add mappings

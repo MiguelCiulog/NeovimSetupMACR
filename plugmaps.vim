@@ -207,4 +207,4 @@ vim.opt.list = true
  }
 EOF
 
-nnoremap <c-t> :NvimTreeFocus<CR>
+nnoremap <silent><c-t> :NvimTreeFocus<CR>
