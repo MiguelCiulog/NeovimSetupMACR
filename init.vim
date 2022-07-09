@@ -3,6 +3,8 @@ call plug#begin()
 " Theme ayu
 Plug 'ayu-theme/ayu-vim'
 Plug 'overcache/NeoSolarized'
+Plug 'rebelot/kanagawa.nvim'
+
 " Top line
 " Plug 'vim-airline/vim-airline'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
@@ -109,8 +111,8 @@ set nowrap
 set background=dark
 
 set termguicolors
-let ayucolor="mirage"
-colorscheme ayu
+" let ayucolor="mirage"
+colorscheme kanagawa
 " colorscheme NeoSolarized
 
 " Change default # used in vertical splits to a diferent color 
@@ -154,6 +156,8 @@ command! -nargs=0 Trim call Trim()
 set splitbelow splitright
 
 set signcolumn=yes
+" No highlight when searching
+set nohlsearch
 
 " Remove background
 " hi Normal guibg=none
