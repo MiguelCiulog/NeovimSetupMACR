@@ -1,6 +1,6 @@
 require 'nvim-treesitter.install'.compilers = { "clang" }
 
-require('telescope').setup{  defaults = { file_ignore_patterns = { "node_modules", ".git" }} }
+require('telescope').setup{  defaults = { file_ignore_patterns = { "node_modules", ".git", "__pycache__" }} }
 
 require'nvim-tree'.setup {
   disable_netrw       = true,

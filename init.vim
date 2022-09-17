@@ -1,8 +1,6 @@
 call plug#begin()
 
 " Theme ayu
-Plug 'ayu-theme/ayu-vim'
-Plug 'overcache/NeoSolarized'
 Plug 'rebelot/kanagawa.nvim'
 
 " Top line
@@ -47,7 +45,7 @@ set signcolumn=yes
 set cursorline " highlight current cursorline
 
 " Set scroll with cursor
-set scrolloff=6
+set scrolloff=5
 
 " Use system clipboard
 set clipboard+=unnamedplus
@@ -111,26 +109,12 @@ set nowrap
 set background=dark
 
 set termguicolors
-" let ayucolor="mirage"
 colorscheme kanagawa
-" colorscheme NeoSolarized
+
+hi Normal guibg=NONE ctermbg=NONE
 
 " Change default # used in vertical splits to a diferent color 
 highlight VertSplit guifg=#3d4751
-" let g:lightline = {
-"       \'colorscheme': 'ayu',
-" 			\
-" 			\ 'active': {
-" 			\   'left': [ [ 'mode', 'paste' ],
-" 			\ [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-" 			\ },
-" 			\
-" 			\ 'component_function': {
-" 			\   'cocstatus': 'coc#status'
-" 			\ },
-" 			\ }
-
-" autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 " Have mouse available to use
 set mouse=a
